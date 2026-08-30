@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>A Beautiful Jungle - Grow. Thrive. Flourish.</title>
+    
+    <!-- Tailwind CSS with Forms & Container Queries plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Fonts: Libre Caslon Text & Manrope -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Theme Configuration for Light & Dark modes -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        // Dynamic Theme Variables
+                        'nav-bg': 'var(--nav-bg)',
+                        'nav-text': 'var(--nav-text)',
+                        
+                        'hero-bg': 'var(--hero-bg)',
+                        'hero-text': 'var(--hero-text)',
+                        'hero-title': 'var(--hero-title)',
+                        'hero-btn': 'var(--hero-btn)',
+                        
+                        'preview-bg': 'var(--preview-bg)',
+                        'preview-text': 'var(--preview-text)',
+                        'preview-title': 'var(--preview-title)',
+                        
+                        'about-bg': 'var(--about-bg)',
+                        'about-text': 'var(--about-text)',
+                        'about-title': 'var(--about-title)',
+                        
+                        'products-bg': 'var(--products-bg)',
+                        'products-text': 'var(--products-text)',
+                        'products-title': 'var(--products-title)',
+                        'product-card-bg': 'var(--product-card-bg)',
+                        'product-card-border': 'var(--product-card-border)',
+                        'product-card-secondary': 'var(--product-card-secondary-bg)',
+                        'product-card-secondary-border': 'var(--product-card-secondary-border)',
+                        
+                        'videos-bg': 'var(--videos-bg)',
+                        'videos-text': 'var(--videos-text)',
+                        'videos-title': 'var(--videos-title)',
+                        
+                        'footer-bg': 'var(--footer-bg)',
+                        'footer-text': 'var(--footer-text)',
+                        'footer-title': 'var(--footer-title)',
+                        'footer-input': 'var(--footer-input-bg)',
+                        'footer-input-border': 'var(--footer-input-border)',
+                        'footer-input-text': 'var(--footer-input-text)',
+                        'footer-social-bg': 'var(--footer-social-bg)',
+                        'footer-social-border': 'var(--footer-social-border)',
+                        'footer-social-text': 'var(--footer-social-text)',
+                        'footer-social-hover-bg': 'var(--footer-social-hover-bg)',
+
+                        'cream-bg': 'var(--bg-main)',
+                        'cream-surface': 'var(--bg-surface)',
+                        'cream-lowest': 'var(--bg-lowest)',
+                        'forest-primary': 'var(--text-primary)',
+                        'forest-container': 'var(--brand-primary)',
+                        'soil-grey': 'var(--text-main)',
+                        'outline-variant-light': 'var(--outline-variant)',
+
+                        // Constants and fallback variables
+                        'brand-magenta': '#7B1B54',
+                        'obsidian-bg': '#131313',
+                        'obsidian-surface': '#1c1b1b',
+                        'obsidian-lowest': '#0e0e0e',
+                        'moss-primary': '#a7d1ac',
+                        'moss-container': '#294f33',
+                        'outline-light': '#727971',
+                        'outline-dark': '#988e90',
+                        'outline-variant-dark': '#4c4546',
+                        'silver-leaf': '#E4E2E2',
+                        'muted-moss': '#424942',
+                    },
+                    fontFamily: {
+                        display: ['Libre Caslon Text', 'serif'],
+                        body: ['Manrope', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'forest': '0 10px 30px -10px rgba(20, 58, 32, 0.25)',
+                        'forest-dark': '0 10px 30px -10px rgba(0, 0, 0, 0.7)',
+                        'magenta-glow': '0 4px 14px 0 rgba(123, 27, 84, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --bg-main: #fbf9f8;
+            --bg-surface: #f5f3f3;
+            --bg-lowest: #ffffff;
+            --text-main: #4a4a4a;
+            --text-primary: #00240d;
+            --brand-primary: #143a20;
+            --outline-variant: rgba(114, 121, 113, 0.15);
+            
+            /* Light theme section colors */
+            --nav-bg: rgba(251, 249, 248, 0.85);
+            --nav-text: #00240d;
+            --hero-bg: #fbf9f8;
+            --hero-text: #4a4a4a;
+            --hero-title: #00240d;
+            --hero-btn: #00240d;
+            --preview-bg: #f5f3f3;
+            --preview-text: #4a4a4a;
+            --preview-title: #00240d;
+            --about-bg: #fbf9f8;
+            --about-text: #4a4a4a;
+            --about-title: #00240d;
+            --products-bg: #f5f3f3;
+            --products-text: #4a4a4a;
+            --products-title: #00240d;
+            --product-card-bg: #ffffff;
+            --product-card-border: rgba(114, 121, 113, 0.15);
+            --product-card-secondary-bg: rgba(255, 255, 255, 0.6);
+            --product-card-secondary-border: rgba(114, 121, 113, 0.2);
+            --videos-bg: #fbf9f8;
+            --videos-text: #4a4a4a;
+            --videos-title: #00240d;
+            
+            --footer-bg: #f5f3f3;
+            --footer-text: #4a4a4a;
+            --footer-title: #00240d;
+            --footer-input-bg: #ffffff;
+            --footer-input-border: rgba(0, 36, 13, 0.15);
+            --footer-input-text: #00240d;
+            --footer-social-bg: rgba(0, 36, 13, 0.05);
+            --footer-social-border: rgba(0, 36, 13, 0.15);
+            --footer-social-text: #00240d;
+            --footer-social-hover-bg: rgba(0, 36, 13, 0.1);
+
+            --ambient-radial: radial-gradient(circle at center, rgba(167, 209, 172, 0.15) 0%, transparent 70%);
+        }
+        
+        /* Midday Theme (Warm Alternating Stitch Layout) */
+        .midday {
+            --bg-main: #fbf6eb;
+            --bg-surface: #f4eae0;
+            --bg-lowest: #faf6eb;
+            --text-main: #3b2a1a;
+            --text-primary: #47260c;
+            --brand-primary: #5c3517;
+            --outline-variant: rgba(140, 114, 80, 0.15);
+            
+            --nav-bg: rgba(20, 58, 32, 0.85);
+            --nav-text: #c2edc7;
+            --hero-bg: #143a20;
+            --hero-text: #a7d1ac;
+            --hero-title: #ffffff;
+            --hero-btn: #c2edc7;
+            --preview-bg: #fbf9f8;
+            --preview-text: #424942;
+            --preview-title: #143a20;
+            --about-bg: #fbf9f8;
+            --about-text: #424942;
+            --about-title: #143a20;
+            --products-bg: #143a20;
+            --products-text: #a7d1ac;
+            --products-title: #ffffff;
+            --product-card-bg: #1a4a29;
+            --product-card-border: #294f33;
+            --product-card-secondary-bg: rgba(255, 255, 255, 0.05);
+            --product-card-secondary-border: rgba(255, 255, 255, 0.1);
+            --videos-bg: #fbf9f8;
+            --videos-text: #424942;
+            --videos-title: #143a20;
+            
+            --footer-bg: #0f2916;
+            --footer-text: #a7d1ac;
+            --footer-title: #c2edc7;
+            --footer-input-bg: rgba(255, 255, 255, 0.05);
+            --footer-input-border: rgba(255, 255, 255, 0.15);
+            --footer-input-text: #ffffff;
+            --footer-social-bg: rgba(255, 255, 255, 0.05);
+            --footer-social-border: rgba(255, 255, 255, 0.15);
+            --footer-social-text: #c2edc7;
+            --footer-social-hover-bg: rgba(255, 255, 255, 0.15);
+
+            --ambient-radial: radial-gradient(circle at center, rgba(230, 180, 110, 0.2) 0%, transparent 70%);
+        }
+
+        /* Dark Theme (Nocturnal Edition) */
+        .dark {
+            --bg-main: #131313;
+            --bg-surface: #1c1b1b;
+            --bg-lowest: #0e0e0e;
+            --text-main: #E4E2E2;
+            --text-primary: #a7d1ac;
+            --brand-primary: #294f33;
+            --outline-variant: rgba(76, 69, 70, 0.2);
+            
+            --nav-bg: rgba(19, 19, 19, 0.85);
+            --nav-text: #a7d1ac;
+            --hero-bg: #131313;
+            --hero-text: #E4E2E2;
+            --hero-title: #ffffff;
+            --hero-btn: #a7d1ac;
+            --preview-bg: #1c1b1b;
+            --preview-text: #E4E2E2;
+            --preview-title: #a7d1ac;
+            --about-bg: #131313;
+            --about-text: #E4E2E2;
+            --about-title: #a7d1ac;
+            --products-bg: #1c1b1b;
+            --products-text: #E4E2E2;
+            --products-title: #a7d1ac;
+            --product-card-bg: #0e0e0e;
+            --product-card-border: rgba(76, 69, 70, 0.2);
+            --product-card-secondary-bg: rgba(28, 27, 27, 0.4);
+            --product-card-secondary-border: rgba(76, 69, 70, 0.2);
+            --videos-bg: #131313;
+            --videos-text: #E4E2E2;
+            --videos-title: #a7d1ac;
+            
+            --footer-bg: #0e0e0e;
+            --footer-text: #E4E2E2;
+            --footer-title: #a7d1ac;
+            --footer-input-bg: rgba(255, 255, 255, 0.05);
+            --footer-input-border: rgba(255, 255, 255, 0.15);
+            --footer-input-text: #ffffff;
+            --footer-social-bg: rgba(255, 255, 255, 0.05);
+            --footer-social-border: rgba(255, 255, 255, 0.15);
+            --footer-social-text: #a7d1ac;
+            --footer-social-hover-bg: rgba(255, 255, 255, 0.15);
+
+            --ambient-radial: radial-gradient(circle at center, rgba(20, 58, 32, 0.4) 0%, transparent 70%);
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .theme-transition {
+            transition: all 0.3s ease;
+        }
+        .ambient-radial-theme {
+            background-image: var(--ambient-radial);
+        }
+    </style>
+</head>
+<body class="font-body bg-cream-bg text-soil-grey antialiased overflow-x-hidden">
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-nav-bg text-nav-text backdrop-blur-md border-b border-outline-variant-light/20 shadow-sm theme-transition">
+        <div class="flex justify-between items-center px-6 md:px-16 py-4 max-w-7xl mx-auto">
+            
+            <!-- Logo Branding -->
+            <a href="#" class="flex items-center gap-2 font-display text-2xl md:text-3xl font-bold text-nav-text italic tracking-tight">
+                <span class="material-symbols-outlined text-3xl font-bold fill-1">eco</span>
+                A Beautiful Jungle
+            </a>
+            
+            <!-- Mid Links -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#about">About</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#app-preview">Planting Tool</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#products">Digital Guides</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#hub">Tutorials</a>
+            </div>
+            
+            <!-- Navigation Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors relative flex items-center justify-center" aria-label="Toggle theme">
+                    <span id="theme-toggle-icon" class="material-symbols-outlined text-2xl text-soil-grey">light_mode</span>
+                </button>
+
+                <a href="#products" class="hidden md:block bg-brand-magenta hover:bg-magenta-hover dark:bg-brand-magenta dark:hover:bg-magenta-hover text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-magenta-glow transition-all duration-300 transform hover:-translate-y-0.5">
+                    Get Sowing App
+                </a>
+                
+                <button class="md:hidden text-nav-text focus:outline-none" onclick="toggleMobileMenu()">
+                    <span class="material-symbols-outlined text-3xl" id="menu-btn-icon">menu</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-nav-bg text-nav-text border-t border-outline-variant-light/20 py-4 px-6 space-y-4 shadow-lg">
+            <a class="block font-semibold text-base text-nav-text" href="#about" onclick="toggleMobileMenu()">About</a>
+            <a class="block font-semibold text-base text-nav-text" href="#app-preview" onclick="toggleMobileMenu()">Planting Tool</a>
+            <a class="block font-semibold text-base text-nav-text" href="#products" onclick="toggleMobileMenu()">Digital Guides</a>
+            <a class="block font-semibold text-base text-nav-text" href="#hub" onclick="toggleMobileMenu()">Tutorials</a>
+            <a href="#products" class="block text-center bg-brand-magenta text-white font-semibold py-3 rounded-xl shadow-magenta-glow" onclick="toggleMobileMenu()">
+                Get Sowing App
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Workspace -->
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-center py-20 px-6 md:px-16 overflow-hidden bg-hero-bg text-hero-text theme-transition">
+            <!-- Radial background highlight -->
+            <div class="absolute inset-0 z-0 pointer-events-none ambient-radial-theme"></div>
+            
+            <div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Hero Left: Pitch details -->
+                <div class="text-center lg:text-left space-y-8 order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 text-forest-primary dark:text-moss-primary font-semibold text-xs tracking-wider uppercase">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-magenta opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-magenta"></span>
+                        </span>
+                        Faith, Purpose &amp; Abundant Growing
+                    </div>
+                    
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-hero-title leading-tight">
+                        Grow. Thrive. <br/>
+                        <span class="text-brand-magenta dark:text-moss-primary italic font-normal">Flourish.</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-hero-text opacity-95 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Master backyard growing, soil regeneration, and seasonal preservation. Cultivate a self-sufficient life rooted in nature and community.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#app-preview" class="bg-brand-magenta hover:bg-magenta-hover text-white font-bold text-base px-8 py-4 rounded-full shadow-magenta-glow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                            Explore Sowing Assistant
+                        </a>
+                        <a href="#products" class="border-2 border-hero-btn text-hero-btn hover:bg-hero-btn/10 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 text-center">
+                            Explore Digital Products
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Right: High-resolution brand logo illustration -->
+                <div class="order-1 lg:order-2 flex justify-center items-center">
+                    <div class="w-full max-w-md aspect-square relative rounded-[2.5rem] overflow-hidden shadow-forest dark:shadow-forest-dark border-4 border-forest-primary/10 dark:border-moss-primary/10 p-3 bg-white/50 dark:bg-white/5 backdrop-blur-sm transform hover:scale-[1.02] transition-transform duration-500">
+                        <img alt="A Beautiful Jungle Logo Illustration" 
+                             class="w-full h-full object-cover rounded-[2rem]" 
+                             src="./29F2700B-8F16-49B4-B1BE-1C7C93A51BD2.PNG" />
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- USDA Smart Planting Assistant Sales Funnel Section -->
+        <section id="app-preview" class="py-24 px-6 md:px-16 bg-preview-bg text-preview-text border-y border-outline-variant-light/20 theme-transition">
+            <div class="max-w-7xl mx-auto space-y-16">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-preview-title">
+                        Hyper-Local Smart Planting Guide
+                    </h2>
+                    <p class="text-lg text-preview-text opacity-95">
+                        Maximize your harvest with our USDA micro-climate planting assistant. Zero guesswork, just abundance.
+                    </p>
+                </div>
+                
+                <!-- Grid: Sales Pitch & Mockups -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    
+                    <!-- App Info & Sales Copy -->
+                    <div class="lg:col-span-6 space-y-8">
+                        <div class="space-y-4">
+                            <h3 class="font-display text-2xl md:text-3xl text-preview-title">
+                                The Sowing Companion Your Garden Needs
+                            </h3>
+                            <p class="text-base leading-relaxed text-preview-text opacity-90">
+                                Stop losing seeds to early frosts or late starts. By matching your ZIP code to real-time climate zone calculations, the smart assistant generates an optimized, week-by-week sowing checklist tailored precisely to your zip code.
+                            </p>
+                        </div>
+
+                        <!-- Core Features checklist -->
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                                <span class="text-sm font-semibold text-preview-text opacity-95">Instant USDA Zone &amp; First Frost Date Lookups (ZIP-based)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                                <span class="text-sm font-semibold text-preview-text opacity-95">Separated checklists for Indoor Seed Starting vs Direct Sowing</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                                <span class="text-sm font-semibold text-preview-text opacity-95">Digital "My Garden" ledger to track your plantings in real-time</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                                <span class="text-sm font-semibold text-preview-text opacity-95">Offline local storage support — save your progress directly</span>
+                            </li>
+                        </ul>
+
+                        <div class="pt-4">
+                            <a href="#products" class="inline-block bg-brand-magenta hover:bg-magenta-hover text-white font-bold text-base px-8 py-4 rounded-xl shadow-magenta-glow hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                                Buy Sowing Assistant App ($9.99)
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Smartphone Mockups Display side-by-side -->
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-6 justify-center">
+                        <!-- Mockup 1 -->
+                        <div class="relative mx-auto border-forest-primary/95 dark:border-muted-moss/95 bg-forest-primary dark:bg-muted-moss border-[8px] rounded-[2.5rem] shadow-xl overflow-hidden max-w-[240px]">
+                            <img alt="USDA Zone Lookup Screen Screenshot" 
+                                 class="w-full h-auto object-cover" 
+                                 src="./99D7F14F-E415-4E4C-A1F3-8A01E8DE2B42.jpg" />
+                            <!-- Screen Title bar overlay -->
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 py-2.5 text-center text-xs text-white font-semibold uppercase tracking-wider">
+                                Zone &amp; Frost Lookups
+                            </div>
+                        </div>
+                        <!-- Mockup 2 -->
+                        <div class="relative mx-auto border-forest-primary/95 dark:border-muted-moss/95 bg-forest-primary dark:bg-muted-moss border-[8px] rounded-[2.5rem] shadow-xl overflow-hidden max-w-[240px]">
+                            <img alt="Smart Planting Guide Timeframe Calendar Screenshot" 
+                                 class="w-full h-auto object-cover" 
+                                 src="./28CA3DDD-F7B6-479E-9475-9A5DE089B033.jpg" />
+                            <!-- Screen Title bar overlay -->
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 py-2.5 text-center text-xs text-white font-semibold uppercase tracking-wider">
+                                Sowing Checklists
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- About the Creator / Mission Section -->
+        <section id="about" class="py-24 px-6 md:px-16 bg-about-bg text-about-text transition-colors duration-300">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Photo Column: dynamically toggled depending on Light/Dark mode -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-forest dark:shadow-forest-dark border border-outline-variant-light/20 dark:border-outline-variant-dark/20 p-2 bg-white/40 dark:bg-white/5 backdrop-blur-sm">
+                        <img id="founder-image" 
+                             alt="Founder of A Beautiful Jungle" 
+                             class="w-full h-auto object-cover rounded-2xl transform hover:scale-[1.01] transition-transform duration-500" 
+                             src="./4734B225-AF48-4E68-8025-6AB0A94EE4A9.PNG" />
+                    </div>
+                    
+                    <!-- Text Mission Column -->
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <h2 class="font-display text-3xl md:text-5xl font-bold text-about-title">
+                                Cultivating Life, <br/>
+                                <span class="italic text-brand-magenta dark:text-electric-magenta font-normal">One Seed at a Time</span>
+                            </h2>
+                            <p class="text-lg font-semibold text-about-title opacity-90 leading-relaxed">
+                                Rooted in faith and fueled by passion, our mission is to empower families to grow their own food, restore backyard soil, and live healthier lives.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-base leading-relaxed text-about-text opacity-90">
+                                Through organic master gardening strategies and community masterclasses, we guide growers to design high-yield layouts that work alongside nature. Our digital products are tailored to ensure you can preserve and relish what you sow.
+                            </p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 flex items-center justify-center text-forest-primary dark:text-moss-primary">
+                                        <span class="material-symbols-outlined fill-1">local_florist</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-about-title">Organic Master Gardening</h4>
+                                        <p class="text-xs text-about-text opacity-85">Natural amendments and high-yield biological growing.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 flex items-center justify-center text-forest-primary dark:text-moss-primary">
+                                        <span class="material-symbols-outlined fill-1">eco</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-about-title">Backyard Self-Sufficiency</h4>
+                                        <p class="text-xs text-about-text opacity-85">Practical growing guides to produce food for the family.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 flex items-center justify-center text-forest-primary dark:text-moss-primary">
+                                        <span class="material-symbols-outlined fill-1">groups</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-about-title">Community Masterclasses</h4>
+                                        <p class="text-xs text-about-text opacity-85">Shared wisdom, seasonal workshops, and local garden circles.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Tools & Products Section -->
+        <section id="products" class="py-24 px-6 md:px-16 bg-products-bg text-products-text border-y border-outline-variant-light/20 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto space-y-16">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-products-title">
+                        Tools for Your Jungle
+                    </h2>
+                    <p class="text-lg text-products-text opacity-95">
+                        Expertly crafted digital handbooks to simplify planting and preserve your abundant harvests.
+                    </p>
+                </div>
+                
+                <!-- Center aligned Single Product Card -->
+                <div class="flex justify-center w-full">
+                    
+                    <!-- Featured Product Card -->
+                    <div class="bg-product-card-bg border border-product-card-border rounded-3xl p-8 shadow-forest dark:shadow-forest-dark flex flex-col justify-between relative overflow-hidden max-w-md w-full transform hover:-translate-y-1 transition-transform duration-300 group">
+                        <div class="absolute top-0 right-0 bg-brand-magenta text-white font-bold text-[10px] tracking-wider uppercase px-4 py-1.5 rounded-bl-2xl">
+                            Coming Soon
+                        </div>
+                        <div class="space-y-6">
+                            <div class="w-14 h-14 bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 rounded-2xl flex items-center justify-center text-forest-primary dark:text-moss-primary">
+                                <span class="material-symbols-outlined text-3xl">map</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-products-title">
+                                Hyper-Local Smart Planting Guide
+                            </h3>
+                            <p class="text-sm leading-relaxed text-products-text opacity-90">
+                                Stop guessing when to plant. Get USDA-based first/last frost dates and exact sowing timeframes tailored specifically for your ZIP code and micro-climate.
+                            </p>
+                            <div class="flex items-baseline gap-2 pt-2">
+                                <span class="font-display text-3xl font-bold text-products-title">$9.99</span>
+                                <span class="text-sm text-products-text opacity-50 line-through font-semibold">$19.99</span>
+                            </div>
+                        </div>
+                        <button disabled class="mt-8 w-full bg-soil-grey/15 dark:bg-white/10 text-soil-grey/50 dark:text-white/40 font-bold py-3.5 rounded-xl cursor-not-allowed transition-colors">
+                            Coming Soon
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Watch & Learn Video Hub -->
+        <section id="hub" class="py-24 px-6 md:px-16 bg-videos-bg text-videos-text transition-colors duration-300">
+            <div class="max-w-7xl mx-auto space-y-16">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row justify-between items-end gap-6">
+                    <div class="space-y-4 text-center md:text-left max-w-2xl">
+                        <h2 class="font-display text-3xl md:text-5xl font-bold text-videos-title">
+                            Watch &amp; Learn
+                        </h2>
+                        <p class="text-lg text-videos-text opacity-95">
+                            Practical, faith-driven horticultural techniques directly from the garden.
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/@A_Beautiful_Jungle" target="_blank" class="flex items-center text-brand-magenta hover:text-magenta-hover dark:text-moss-primary dark:hover:text-moss-primary/80 font-bold text-sm tracking-wider uppercase group">
+                        Visit Youtube Channel
+                        <span class="material-symbols-outlined text-base ml-1.5 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                
+                <!-- Videos Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Video Card 1 -->
+                    <div onclick="playVideo('PZ2ppNuNSpU')" class="group cursor-pointer space-y-4">
+                        <div class="relative aspect-video rounded-2xl overflow-hidden bg-forest-primary/10 border border-outline-variant-light/30 dark:border-outline-variant-dark/30 shadow-md group-hover:shadow-lg transition-shadow">
+                            <!-- Static Image from YouTube CDN -->
+                            <img alt="YouTube Video: Final Potatoe Harvest for 2024 (39 lbs of potatoes)" 
+                                 class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" 
+                                 src="https://img.youtube.com/vi/PZ2ppNuNSpU/maxresdefault.jpg" 
+                                 onerror="this.src='https://img.youtube.com/vi/PZ2ppNuNSpU/hqdefault.jpg'" />
+                            <!-- Play Overlay -->
+                            <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300">
+                                    <span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="font-display text-xl font-bold text-videos-title group-hover:text-brand-magenta transition-colors">
+                            Final Potatoe Harvest for 2024 (39 lbs of potatoes)
+                        </h4>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div onclick="playVideo('SIhiCn3oqUo')" class="group cursor-pointer space-y-4 md:translate-y-6">
+                        <div class="relative aspect-video rounded-2xl overflow-hidden bg-forest-primary/10 border border-outline-variant-light/30 dark:border-outline-variant-dark/30 shadow-md group-hover:shadow-lg transition-shadow">
+                            <!-- Static Image from YouTube CDN -->
+                            <img alt="YouTube Video: Exciting First Harvest Of The Season: Crop Of Tomatoes, Beans, & Peppers" 
+                                 class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" 
+                                 src="https://img.youtube.com/vi/SIhiCn3oqUo/maxresdefault.jpg" 
+                                 onerror="this.src='https://img.youtube.com/vi/SIhiCn3oqUo/hqdefault.jpg'" />
+                            <!-- Play Overlay -->
+                            <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300">
+                                    <span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="font-display text-xl font-bold text-videos-title group-hover:text-brand-magenta transition-colors">
+                            Exciting First Harvest Of The Season: Crop Of Tomatoes, Beans, &amp; Peppers
+                        </h4>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div onclick="playVideo('P9jw-cjVIws')" class="group cursor-pointer space-y-4">
+                        <div class="relative aspect-video rounded-2xl overflow-hidden bg-forest-primary/10 border border-outline-variant-light/30 dark:border-outline-variant-dark/30 shadow-md group-hover:shadow-lg transition-shadow">
+                            <!-- Static Image from YouTube CDN -->
+                            <img alt="YouTube Video: Before your next Rainstorm, Do THIS for your garden" 
+                                 class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" 
+                                 src="https://img.youtube.com/vi/P9jw-cjVIws/maxresdefault.jpg" 
+                                 onerror="this.src='https://img.youtube.com/vi/P9jw-cjVIws/hqdefault.jpg'" />
+                            <!-- Play Overlay -->
+                            <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300">
+                                    <span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="font-display text-xl font-bold text-videos-title group-hover:text-brand-magenta transition-colors">
+                            Before your next Rainstorm, Do THIS for your garden
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="relative w-full max-w-4xl bg-[#0c0c0c] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300">
+            <!-- Close Button -->
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors z-10" aria-label="Close video player">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <!-- Video Container -->
+            <div class="aspect-video w-full">
+                <iframe id="modal-iframe" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Newsletter -->
+    <footer class="bg-footer-bg text-footer-text pt-24 pb-12 mt-12 border-t border-outline-variant-light/20 theme-transition">
+        <div class="px-6 md:px-16 max-w-7xl mx-auto flex flex-col gap-16">
+            
+            <!-- Newsletter Sign-up Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-b border-outline-variant-light/20 pb-16">
+                <div class="space-y-4">
+                    <h3 class="font-display text-3xl md:text-4xl text-footer-title italic">Join the Garden Ledger</h3>
+                    <p class="text-sm md:text-base text-footer-text opacity-90">
+                        Receive weekly companion planting recommendations, natural composting cheat-sheets, and preservation recipes directly in your inbox.
+                    </p>
+                </div>
+                
+                <div class="w-full">
+                    <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-4">
+                        <input id="newsletter-email" 
+                               class="flex-grow bg-footer-input border border-footer-input-border focus:border-brand-magenta focus:ring-1 focus:ring-brand-magenta text-footer-input-text px-6 py-4 rounded-xl font-medium outline-none placeholder:text-footer-input-text placeholder-opacity-50 transition-colors" 
+                               placeholder="Enter your email address" 
+                               type="email" 
+                               required />
+                        <button class="bg-brand-magenta hover:bg-magenta-hover text-white font-bold px-8 py-4 rounded-xl shadow-magenta-glow hover:shadow-lg transition-all duration-300 whitespace-nowrap" 
+                                type="submit">
+                            Subscribe
+                        </button>
+                    </form>
+                    <span id="subscribe-feedback" class="block text-xs font-semibold text-footer-title mt-2 h-4"></span>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom Links & Social Media Glass Icons -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+                <div class="space-y-2">
+                    <h4 class="font-display text-2xl font-bold tracking-tight text-footer-title italic">
+                        A Beautiful Jungle
+                    </h4>
+                    <p class="text-xs text-footer-text opacity-75">
+                        &copy; 2026 A Beautiful Jungle. Rooted in faith, growing with purpose.
+                    </p>
+                </div>
+
+                <!-- Glassmorphic Social Media Icons -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <!-- Pinterest -->
+                    <a href="https://www.pinterest.com/abeautifuljungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="Pinterest">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.4 7.63 11.16-.1-.95-.2-2.4.04-3.43.22-.93 1.4-5.93 1.4-5.93s-.36-.72-.36-1.77c0-1.66.96-2.9 2.19-2.9 1.03 0 1.53.77 1.53 1.7 0 1.04-.66 2.6-.99 4.05-.28 1.2.6 2.17 1.78 2.17 2.14 0 3.78-2.26 3.78-5.5 0-2.88-2.07-4.9-5.03-4.9-3.43 0-5.45 2.57-5.45 5.23 0 1.04.4 2.15.9 2.75.1.12.11.23.08.35-.09.38-.29 1.18-.33 1.35-.05.2-.18.24-.4.14-1.54-.72-2.5-2.97-2.5-4.78 0-3.89 2.83-7.46 8.15-7.46 4.28 0 7.6 3.05 7.6 7.12 0 4.25-2.68 7.67-6.4 7.67-1.25 0-2.43-.65-2.83-1.42 0 0-.62 2.36-.77 2.93-.28 1.07-1.04 2.4-1.55 3.23 1.13.35 2.33.54 3.57.54 6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/abeautifuljungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="Instagram">
+                        <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=61586309692134" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="Facebook">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@abeautifuljungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="TikTok">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.99 1.25 2.37 2.11 3.91 2.47V10.6c-1.63-.03-3.23-.52-4.59-1.44-.33-.23-.65-.48-.94-.75v7.27c.07 1.83-.53 3.64-1.69 5.03-1.48 1.82-3.79 2.91-6.14 2.92-2.19.05-4.36-.78-5.97-2.27C.6 19.82-.16 17.56.02 15.28c.15-2.26 1.27-4.38 3.1-5.7 1.71-1.28 3.86-1.85 5.99-1.57v4.06c-1.12-.22-2.31-.03-3.28.58-.93.59-1.51 1.62-1.57 2.72-.08 1.13.39 2.24 1.23 2.99.96.88 2.29 1.23 3.52.92 1.34-.31 2.39-1.43 2.51-2.81V.02z"/></svg>
+                    </a>
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@A_Beautiful_Jungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="YouTube">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163c-.272-1.022-1.074-1.826-2.097-2.098C19.56 3.793 12 3.793 12 3.793S4.44 3.793 2.6 4.065c-1.022.272-1.825 1.076-2.097 2.098C.24 8.002.24 12 .24 12s0 3.998.263 5.837c.272 1.022 1.075 1.826 2.097 2.098 1.84.272 9.4.272 9.4.272s7.56 0 9.4-.272c1.022-.272 1.825-1.076 2.097-2.098.263-1.839.263-5.837.263-5.837s0-3.998-.263-5.837zm-14.28 9.53V8.307l6.4 3.693-6.4 3.693z"/></svg>
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-x-8 gap-y-4 text-xs font-semibold text-footer-text opacity-75">
+                    <a class="hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+                    <a class="hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+                    <a class="hover:opacity-100 transition-opacity" href="#">Shipping &amp; Returns</a>
+                    <a class="hover:opacity-100 transition-opacity" href="#">Contact Us</a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Interactive script components -->
+    <script>
+        // Toggle mobile dropdown menu visibility
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-btn-icon');
+            const isHidden = menu.classList.toggle('hidden');
+            icon.innerText = isHidden ? 'menu' : 'close';
+        }
+
+        // Cycle page theme (Light -> Midday -> Dark -> Light)
+        function toggleTheme() {
+            const html = document.documentElement;
+            let current = 'light';
+            if (html.classList.contains('midday')) {
+                current = 'midday';
+            } else if (html.classList.contains('dark')) {
+                current = 'dark';
+            }
+
+            let next = 'light';
+            if (current === 'light') {
+                next = 'midday';
+            } else if (current === 'midday') {
+                next = 'dark';
+            } else {
+                next = 'light';
+            }
+
+            html.classList.remove('midday', 'dark');
+            if (next === 'midday') {
+                html.classList.add('midday');
+            } else if (next === 'dark') {
+                html.classList.add('dark');
+            }
+
+            localStorage.setItem('theme', next);
+            updateThemeAssets(next);
+            updateThemeToggleButton(next);
+        }
+
+        // Update the toggle button icon depending on active theme mode
+        function updateThemeToggleButton(theme) {
+            const icon = document.getElementById('theme-toggle-icon');
+            if (!icon) return;
+            icon.classList.remove('text-soil-grey', 'text-amber-600', 'text-moss-primary');
+            
+            if (theme === 'light') {
+                icon.innerText = 'light_mode';
+                icon.classList.add('text-soil-grey');
+            } else if (theme === 'midday') {
+                icon.innerText = 'sunny';
+                icon.classList.add('text-amber-600');
+            } else if (theme === 'dark') {
+                icon.innerText = 'dark_mode';
+                icon.classList.add('text-moss-primary');
+            }
+        }
+
+        // Swap Creator photo depending on active theme mode
+        function updateThemeAssets(theme) {
+            const img = document.getElementById('founder-image');
+            if (img) {
+                if (theme === 'light' || theme === 'midday') {
+                    img.src = './4734B225-AF48-4E68-8025-6AB0A94EE4A9.PNG';
+                    img.alt = "Founder of A Beautiful Jungle in a sunny garden setting";
+                } else if (theme === 'dark') {
+                    img.src = './0DEADD4C-B7B8-41E9-846C-82C8EFF712D9.PNG';
+                    img.alt = "Founder of A Beautiful Jungle - Nocturnal greenhouse setting";
+                }
+            }
+        }
+
+        // Determine theme based on local system hour
+        function getThemeByTimeOfDay() {
+            const hour = new Date().getHours();
+            if (hour >= 6 && hour < 12) {
+                return 'light';      // Morning (6am - 11:59am)
+            } else if (hour >= 12 && hour < 17) {
+                return 'midday';     // Afternoon (12pm - 4:59pm)
+            } else {
+                return 'dark';       // Evening/Night (5pm - 5:59am)
+            }
+        }
+
+        // Load correct theme preferences on startup
+        window.addEventListener('DOMContentLoaded', () => {
+            // Default to time-based theme if user has no manually saved preference
+            const savedTheme = localStorage.getItem('theme') || getThemeByTimeOfDay();
+
+            document.documentElement.classList.remove('midday', 'dark');
+            if (savedTheme === 'midday') {
+                document.documentElement.classList.add('midday');
+            } else if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+            updateThemeAssets(savedTheme);
+            updateThemeToggleButton(savedTheme);
+        });
+
+        // Simulate digital guide purchase action
+        function simulatePurchase(guideName) {
+            alert(`Thank you for your interest! Purchasing "${guideName}" is simulated. Under construction.`);
+        }
+
+        // YouTube video modal pop-up player lightbox
+        function playVideo(videoId) {
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('modal-iframe');
+            if (modal && iframe) {
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modal.classList.add('opacity-100');
+                    const inner = modal.querySelector('.transform');
+                    inner.classList.remove('scale-95');
+                    inner.classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('modal-iframe');
+            if (modal && iframe) {
+                modal.classList.remove('opacity-100');
+                modal.classList.add('opacity-0');
+                const inner = modal.querySelector('.transform');
+                inner.classList.remove('scale-100');
+                inner.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    iframe.src = '';
+                }, 300);
+            }
+        }
+
+        // Close modal when clicking outside the video player container
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('video-modal');
+            if (e.target === modal) {
+                closeVideoModal();
+            }
+        });
+
+        // Handle newsletter subscription forms
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            const feedback = document.getElementById('subscribe-feedback');
+            
+            if (emailInput.value) {
+                feedback.innerText = `Success! ${emailInput.value} has been added to the Ledger.`;
+                emailInput.value = '';
+                setTimeout(() => {
+                    feedback.innerText = '';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
