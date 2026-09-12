@@ -106,7 +106,6 @@
             --brand-primary: #143a20;
             --outline-variant: rgba(114, 121, 113, 0.15);
             
-            /* Light theme section colors */
             --nav-bg: rgba(251, 249, 248, 0.85);
             --nav-text: #00240d;
             --hero-bg: #fbf9f8;
@@ -144,7 +143,6 @@
             --ambient-radial: radial-gradient(circle at center, rgba(167, 209, 172, 0.15) 0%, transparent 70%);
         }
         
-        /* Midday Theme (Warm Alternating Stitch Layout) */
         .midday {
             --bg-main: #fbf6eb;
             --bg-surface: #f4eae0;
@@ -191,7 +189,6 @@
             --ambient-radial: radial-gradient(circle at center, rgba(230, 180, 110, 0.2) 0%, transparent 70%);
         }
 
-        /* Dark Theme (Nocturnal Edition) */
         .dark {
             --bg-main: #131313;
             --bg-surface: #1c1b1b;
@@ -238,15 +235,9 @@
             --ambient-radial: radial-gradient(circle at center, rgba(20, 58, 32, 0.4) 0%, transparent 70%);
         }
 
-        body {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .theme-transition {
-            transition: all 0.3s ease;
-        }
-        .ambient-radial-theme {
-            background-image: var(--ambient-radial);
-        }
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .theme-transition { transition: all 0.3s ease; }
+        .ambient-radial-theme { background-image: var(--ambient-radial); }
     </style>
 </head>
 <body class="font-body bg-cream-bg text-soil-grey antialiased overflow-x-hidden">
@@ -255,67 +246,56 @@
     <nav class="fixed top-0 w-full z-50 bg-nav-bg text-nav-text backdrop-blur-md border-b border-outline-variant-light/20 shadow-sm theme-transition">
         <div class="flex justify-between items-center px-6 md:px-16 py-4 max-w-7xl mx-auto">
             
-            <!-- Logo Branding -->
             <a href="#" class="flex items-center gap-2 font-display text-2xl md:text-3xl font-bold text-nav-text italic tracking-tight">
                 <span class="material-symbols-outlined text-3xl font-bold fill-1">eco</span>
                 A Beautiful Jungle
             </a>
             
-            <!-- Mid Links -->
             <div class="hidden md:flex gap-8 items-center">
-                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#about">About</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#start">Start Here</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#classes">Classes</a>
                 <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#app-preview">Planting Tool</a>
-                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#products">Digital Guides</a>
-                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#hub">Tutorials</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#about">About</a>
+                <a class="font-semibold text-sm text-nav-text hover:opacity-85 transition-opacity" href="#hub">Watch</a>
             </div>
             
-            <!-- Navigation Actions -->
             <div class="flex items-center gap-4">
-                <!-- Theme Toggle Button -->
                 <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors relative flex items-center justify-center" aria-label="Toggle theme">
                     <span id="theme-toggle-icon" class="material-symbols-outlined text-2xl text-soil-grey">light_mode</span>
                 </button>
-
-                <a href="#products" class="hidden md:block bg-brand-magenta hover:bg-magenta-hover dark:bg-brand-magenta dark:hover:bg-magenta-hover text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-magenta-glow transition-all duration-300 transform hover:-translate-y-0.5">
-                    Get Sowing App
+                <a href="#classes" class="hidden md:block bg-brand-magenta hover:bg-magenta-hover dark:bg-brand-magenta dark:hover:bg-magenta-hover text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-magenta-glow transition-all duration-300 transform hover:-translate-y-0.5">
+                    Explore Classes
                 </a>
-                
                 <button class="md:hidden text-nav-text focus:outline-none" onclick="toggleMobileMenu()">
                     <span class="material-symbols-outlined text-3xl" id="menu-btn-icon">menu</span>
                 </button>
             </div>
         </div>
         
-        <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-nav-bg text-nav-text border-t border-outline-variant-light/20 py-4 px-6 space-y-4 shadow-lg">
-            <a class="block font-semibold text-base text-nav-text" href="#about" onclick="toggleMobileMenu()">About</a>
+            <a class="block font-semibold text-base text-nav-text" href="#start" onclick="toggleMobileMenu()">Start Here</a>
+            <a class="block font-semibold text-base text-nav-text" href="#classes" onclick="toggleMobileMenu()">Classes</a>
             <a class="block font-semibold text-base text-nav-text" href="#app-preview" onclick="toggleMobileMenu()">Planting Tool</a>
-            <a class="block font-semibold text-base text-nav-text" href="#products" onclick="toggleMobileMenu()">Digital Guides</a>
-            <a class="block font-semibold text-base text-nav-text" href="#hub" onclick="toggleMobileMenu()">Tutorials</a>
-            <a href="#products" class="block text-center bg-brand-magenta text-white font-semibold py-3 rounded-xl shadow-magenta-glow" onclick="toggleMobileMenu()">
-                Get Sowing App
-            </a>
+            <a class="block font-semibold text-base text-nav-text" href="#about" onclick="toggleMobileMenu()">About</a>
+            <a class="block font-semibold text-base text-nav-text" href="#hub" onclick="toggleMobileMenu()">Watch</a>
         </div>
     </nav>
 
-    <!-- Main Workspace -->
     <main class="pt-20">
 
         <!-- Hero Section -->
         <section class="relative min-h-[90vh] flex items-center justify-center py-20 px-6 md:px-16 overflow-hidden bg-hero-bg text-hero-text theme-transition">
-            <!-- Radial background highlight -->
             <div class="absolute inset-0 z-0 pointer-events-none ambient-radial-theme"></div>
             
             <div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Hero Left: Pitch details -->
                 <div class="text-center lg:text-left space-y-8 order-2 lg:order-1">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 text-forest-primary dark:text-moss-primary font-semibold text-xs tracking-wider uppercase">
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-magenta opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-magenta"></span>
                         </span>
-                        Faith, Purpose &amp; Abundant Growing
+                        Faith, Family &amp; Food
                     </div>
                     
                     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-hero-title leading-tight">
@@ -324,142 +304,246 @@
                     </h1>
                     
                     <p class="text-lg md:text-xl text-hero-text opacity-95 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Master backyard growing, soil regeneration, and seasonal preservation. Cultivate a self-sufficient life rooted in nature and community.
+                        Practical garden education and real growing stories for everyday families who want to grow more food—whether they have raised beds, containers, or one sunny corner.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <a href="#app-preview" class="bg-brand-magenta hover:bg-magenta-hover text-white font-bold text-base px-8 py-4 rounded-full shadow-magenta-glow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-center">
-                            Explore Sowing Assistant
+                        <a href="#classes" class="bg-brand-magenta hover:bg-magenta-hover text-white font-bold text-base px-8 py-4 rounded-full shadow-magenta-glow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                            Explore the First Class
                         </a>
-                        <a href="#products" class="border-2 border-hero-btn text-hero-btn hover:bg-hero-btn/10 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 text-center">
-                            Explore Digital Products
+                        <a href="https://www.youtube.com/@A_Beautiful_Jungle" target="_blank" rel="noopener" class="border-2 border-hero-btn text-hero-btn hover:bg-hero-btn/10 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 text-center">
+                            Watch on YouTube
                         </a>
                     </div>
                 </div>
                 
-                <!-- Hero Right: High-resolution brand logo illustration -->
                 <div class="order-1 lg:order-2 flex justify-center items-center">
                     <div class="w-full max-w-md aspect-square relative rounded-[2.5rem] overflow-hidden shadow-forest dark:shadow-forest-dark border-4 border-forest-primary/10 dark:border-moss-primary/10 p-3 bg-white/50 dark:bg-white/5 backdrop-blur-sm transform hover:scale-[1.02] transition-transform duration-500">
                         <img alt="A Beautiful Jungle Logo Illustration" 
                              class="w-full h-full object-cover rounded-[2rem]" 
-                             src="./29F2700B-8F16-49B4-B1BE-1C7C93A51BD2.PNG" />
+                             src="https://raw.githubusercontent.com/cgriffin2415-del/abj-html-site/main/29F2700B-8F16-49B4-B1BE-1C7C93A51BD2.PNG" />
                     </div>
                 </div>
                 
             </div>
         </section>
 
-        <!-- USDA Smart Planting Assistant Sales Funnel Section -->
-        <section id="app-preview" class="py-24 px-6 md:px-16 bg-preview-bg text-preview-text border-y border-outline-variant-light/20 theme-transition">
+        <!-- Path Section (New) -->
+        <section id="start" class="py-24 px-6 md:px-16 bg-preview-bg text-preview-text border-y border-outline-variant-light/20 theme-transition">
             <div class="max-w-7xl mx-auto space-y-16">
                 
-                <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <div class="inline-flex items-center gap-2 text-brand-magenta dark:text-moss-primary font-bold text-xs tracking-wider uppercase">
+                        Start where you are
+                    </div>
                     <h2 class="font-display text-3xl md:text-5xl font-bold text-preview-title">
-                        Hyper-Local Smart Planting Guide
+                        Your garden does not have to be perfect to be productive.
                     </h2>
                     <p class="text-lg text-preview-text opacity-95">
-                        Maximize your harvest with our USDA micro-climate planting assistant. Zero guesswork, just abundance.
+                        Choose the kind of help you need today. Learn freely, take a guided class, or preview the planting tool being developed.
                     </p>
                 </div>
                 
-                <!-- Grid: Sales Pitch & Mockups -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    
-                    <!-- App Info & Sales Copy -->
-                    <div class="lg:col-span-6 space-y-8">
-                        <div class="space-y-4">
-                            <h3 class="font-display text-2xl md:text-3xl text-preview-title">
-                                The Sowing Companion Your Garden Needs
-                            </h3>
-                            <p class="text-base leading-relaxed text-preview-text opacity-90">
-                                Stop losing seeds to early frosts or late starts. By matching your ZIP code to real-time climate zone calculations, the smart assistant generates an optimized, week-by-week sowing checklist tailored precisely to your zip code.
-                            </p>
-                        </div>
-
-                        <!-- Core Features checklist -->
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
-                                <span class="text-sm font-semibold text-preview-text opacity-95">Instant USDA Zone &amp; First Frost Date Lookups (ZIP-based)</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
-                                <span class="text-sm font-semibold text-preview-text opacity-95">Separated checklists for Indoor Seed Starting vs Direct Sowing</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
-                                <span class="text-sm font-semibold text-preview-text opacity-95">Digital "My Garden" ledger to track your plantings in real-time</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
-                                <span class="text-sm font-semibold text-preview-text opacity-95">Offline local storage support — save your progress directly</span>
-                            </li>
-                        </ul>
-
-                        <div class="pt-4">
-                            <a href="#products" class="inline-block bg-brand-magenta hover:bg-magenta-hover text-white font-bold text-base px-8 py-4 rounded-xl shadow-magenta-glow hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-center">
-                                Buy Sowing Assistant App ($9.99)
-                            </a>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Path 1 -->
+                    <div class="bg-product-card-bg border border-product-card-border rounded-3xl p-8 shadow-forest dark:shadow-forest-dark flex flex-col items-start transform hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-10 h-10 rounded-full bg-forest-primary/10 dark:bg-moss-primary/10 text-forest-primary dark:text-moss-primary flex items-center justify-center font-bold mb-6 text-lg">1</div>
+                        <h3 class="font-display text-2xl font-bold text-products-title mb-4">Watch &amp; learn</h3>
+                        <p class="text-sm leading-relaxed text-products-text opacity-90 mb-6">Follow real garden projects, harvests, setbacks, preserving, and family life on A Beautiful Jungle.</p>
+                        <a href="#hub" class="text-brand-magenta dark:text-moss-primary font-bold text-sm hover:underline mt-auto">Browse featured videos →</a>
                     </div>
-                    
-                    <!-- Smartphone Mockups Display side-by-side -->
-                    <div class="lg:col-span-6 grid grid-cols-2 gap-6 justify-center">
-                        <!-- Mockup 1 -->
-                        <div class="relative mx-auto border-forest-primary/95 dark:border-muted-moss/95 bg-forest-primary dark:bg-muted-moss border-[8px] rounded-[2.5rem] shadow-xl overflow-hidden max-w-[240px]">
-                            <img alt="USDA Zone Lookup Screen Screenshot" 
-                                 class="w-full h-auto object-cover" 
-                                 src="./99D7F14F-E415-4E4C-A1F3-8A01E8DE2B42.PNG" />
-                            <!-- Screen Title bar overlay -->
-                            <div class="absolute bottom-0 inset-x-0 bg-black/75 py-2.5 text-center text-xs text-white font-semibold uppercase tracking-wider">
-                                Zone &amp; Frost Lookups
-                            </div>
-                        </div>
-                        <!-- Mockup 2 -->
-                        <div class="relative mx-auto border-forest-primary/95 dark:border-muted-moss/95 bg-forest-primary dark:bg-muted-moss border-[8px] rounded-[2.5rem] shadow-xl overflow-hidden max-w-[240px]">
-                            <img alt="Smart Planting Guide Timeframe Calendar Screenshot" 
-                                 class="w-full h-auto object-cover" 
-                                 src="./28CA3DDD-F7B6-479E-9475-9A5DE089B033.PNG" />
-                            <!-- Screen Title bar overlay -->
-                            <div class="absolute bottom-0 inset-x-0 bg-black/75 py-2.5 text-center text-xs text-white font-semibold uppercase tracking-wider">
-                                Sowing Checklists
-                            </div>
-                        </div>
+                    <!-- Path 2 -->
+                    <div class="bg-product-card-bg border border-product-card-border rounded-3xl p-8 shadow-forest dark:shadow-forest-dark flex flex-col items-start transform hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-10 h-10 rounded-full bg-forest-primary/10 dark:bg-moss-primary/10 text-forest-primary dark:text-moss-primary flex items-center justify-center font-bold mb-6 text-lg">2</div>
+                        <h3 class="font-display text-2xl font-bold text-products-title mb-4">Grow with guidance</h3>
+                        <p class="text-sm leading-relaxed text-products-text opacity-90 mb-6">Take a focused, prerecorded class designed to help you move from information to action.</p>
+                        <a href="#classes" class="text-brand-magenta dark:text-moss-primary font-bold text-sm hover:underline mt-auto">See the first class →</a>
                     </div>
-                    
+                    <!-- Path 3 -->
+                    <div class="bg-product-card-bg border border-product-card-border rounded-3xl p-8 shadow-forest dark:shadow-forest-dark flex flex-col items-start transform hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-10 h-10 rounded-full bg-forest-primary/10 dark:bg-moss-primary/10 text-forest-primary dark:text-moss-primary flex items-center justify-center font-bold mb-6 text-lg">3</div>
+                        <h3 class="font-display text-2xl font-bold text-products-title mb-4">Plan by location</h3>
+                        <p class="text-sm leading-relaxed text-products-text opacity-90 mb-6">Preview the ZIP-code-based Sowing Assistant now in development for more personal planting guidance.</p>
+                        <a href="#app-preview" class="text-brand-magenta dark:text-moss-primary font-bold text-sm hover:underline mt-auto">Preview the tool →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About the Creator / Mission Section -->
+        <!-- Classes Section (The $36 Course) -->
+        <section id="classes" class="py-24 px-6 md:px-16 bg-about-bg text-about-text theme-transition">
+            <div class="max-w-7xl mx-auto space-y-16">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <div class="inline-flex items-center gap-2 text-brand-magenta dark:text-moss-primary font-bold text-xs tracking-wider uppercase">
+                        A Beautiful Jungle Classes
+                    </div>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-about-title">
+                        Clear, practical instruction you can use in your own space.
+                    </h2>
+                    <p class="text-lg text-about-text opacity-95">
+                        The first class is being prepared now. It will be prerecorded so you can watch and work at your own pace.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch bg-product-card-bg border border-product-card-border rounded-[2.5rem] shadow-forest dark:shadow-forest-dark overflow-hidden">
+                    
+                    <!-- Class Visual Side -->
+                    <div class="lg:col-span-5 relative bg-forest-container p-12 flex flex-col justify-between text-white overflow-hidden">
+                        <div class="absolute -bottom-24 -right-24 w-80 h-80 border border-white/20 rounded-full"></div>
+                        <div class="relative z-10 space-y-6">
+                            <span class="inline-block bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase">
+                                First class · Coming soon
+                            </span>
+                            <h3 class="font-display text-3xl md:text-4xl font-bold leading-tight">
+                                Grow Your Own Food in Small Spaces
+                            </h3>
+                        </div>
+                        <div class="relative z-10 pt-16">
+                            <span class="font-display text-5xl font-bold">$36</span>
+                        </div>
+                    </div>
+
+                    <!-- Class Info Side -->
+                    <div class="lg:col-span-7 p-12 flex flex-col justify-center space-y-8">
+                        <div class="space-y-4">
+                            <span class="text-brand-magenta dark:text-moss-primary font-bold text-xs tracking-wider uppercase">Beginner-friendly</span>
+                            <h2 class="font-display text-2xl md:text-3xl font-bold text-about-title">
+                                Turn the space you have into a productive garden.
+                            </h2>
+                            <p class="text-base leading-relaxed text-about-text opacity-90">
+                                Learn how to evaluate your light, choose containers or beds, select crops that fit, build a simple layout, and create a realistic planting plan for your family.
+                            </p>
+                        </div>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-lg font-bold">check</span>
+                                <span class="text-sm font-semibold text-about-text opacity-95">4–6 focused video lessons</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-lg font-bold">check</span>
+                                <span class="text-sm font-semibold text-about-text opacity-95">Approx. 45–60 mins total</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-lg font-bold">check</span>
+                                <span class="text-sm font-semibold text-about-text opacity-95">Small-space planning worksheet</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-lg font-bold">check</span>
+                                <span class="text-sm font-semibold text-about-text opacity-95">Practical planting checklist</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-lg font-bold">check</span>
+                                <span class="text-sm font-semibold text-about-text opacity-95">Watch at your own pace</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-lg font-bold">check</span>
+                                <span class="text-sm font-semibold text-about-text opacity-95">Optional live Q&amp;A later</span>
+                            </li>
+                        </ul>
+
+                        <div class="pt-4 border-t border-outline-variant-light/20">
+                            <button disabled class="w-full md:w-auto bg-soil-grey/15 dark:bg-white/10 text-soil-grey/50 dark:text-white/40 font-bold px-8 py-4 rounded-xl cursor-not-allowed transition-colors">
+                                Enrollment opening soon
+                            </button>
+                            <p class="text-xs text-about-text opacity-60 mt-3 font-semibold">
+                                The enrollment button will connect to Payhip after the class page and materials are complete.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sowing Assistant Section (Updated state) -->
+        <section id="app-preview" class="py-24 px-6 md:px-16 bg-preview-bg text-preview-text border-y border-outline-variant-light/20 theme-transition">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <div class="lg:col-span-6 space-y-8">
+                    <div class="space-y-4">
+                        <span class="inline-block bg-forest-primary/10 dark:bg-moss-primary/10 text-forest-primary dark:text-moss-primary font-bold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full">
+                            In Development
+                        </span>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-preview-title">
+                            A smarter way to answer, “What should I plant now?”
+                        </h2>
+                        <p class="text-base leading-relaxed text-preview-text opacity-90">
+                            The Hyper-Local Sowing Assistant is being built to turn location and frost information into a simpler planting checklist.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                            <span class="text-sm font-semibold text-preview-text opacity-95">ZIP-code-based USDA zone and frost guidance</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                            <span class="text-sm font-semibold text-preview-text opacity-95">Separate indoor seed-starting and outdoor sowing lists</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                            <span class="text-sm font-semibold text-preview-text opacity-95">A personal garden ledger to track what you planted</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-brand-magenta dark:text-moss-primary text-xl font-bold">check_circle</span>
+                            <span class="text-sm font-semibold text-preview-text opacity-95">Simple guidance made for everyday home gardeners</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-4 border-t border-outline-variant-light/20">
+                        <button disabled class="w-full md:w-auto bg-soil-grey/15 dark:bg-white/10 text-soil-grey/50 dark:text-white/40 font-bold px-8 py-4 rounded-xl cursor-not-allowed transition-colors">
+                            Sowing Assistant · Coming Soon
+                        </button>
+                        <p class="text-xs text-preview-text opacity-60 mt-3 font-semibold">
+                            The preview remains visible while development is completed. No purchase is available yet.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-6 grid grid-cols-2 gap-6 justify-center">
+                    <div class="relative mx-auto border-forest-primary/95 dark:border-muted-moss/95 bg-forest-primary dark:bg-muted-moss border-[8px] rounded-[2.5rem] shadow-xl overflow-hidden max-w-[240px]">
+                        <img alt="USDA Zone Lookup Screen Screenshot" 
+                             class="w-full h-auto object-cover" 
+                             src="https://raw.githubusercontent.com/cgriffin2415-del/abj-html-site/main/99D7F14F-E415-4E4C-A1F3-8A01E8DE2B42.PNG" />
+                    </div>
+                    <div class="relative mx-auto border-forest-primary/95 dark:border-muted-moss/95 bg-forest-primary dark:bg-muted-moss border-[8px] rounded-[2.5rem] shadow-xl overflow-hidden max-w-[240px] translate-y-6">
+                        <img alt="Smart Planting Guide Timeframe Calendar Screenshot" 
+                             class="w-full h-auto object-cover" 
+                             src="https://raw.githubusercontent.com/cgriffin2415-del/abj-html-site/main/28CA3DDD-F7B6-479E-9475-9A5DE089B033.PNG" />
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- About Section (Kept Original Visuals) -->
         <section id="about" class="py-24 px-6 md:px-16 bg-about-bg text-about-text transition-colors duration-300">
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
-                    <!-- Photo Column: dynamically toggled depending on Light/Dark mode -->
                     <div class="relative rounded-3xl overflow-hidden shadow-forest dark:shadow-forest-dark border border-outline-variant-light/20 dark:border-outline-variant-dark/20 p-2 bg-white/40 dark:bg-white/5 backdrop-blur-sm">
                         <img id="founder-image" 
                              alt="Founder of A Beautiful Jungle" 
                              class="w-full h-auto object-cover rounded-2xl transform hover:scale-[1.01] transition-transform duration-500" 
-                             src="./4734B225-AF48-4E68-8025-6AB0A94EE4A9.PNG" />
+                             src="https://raw.githubusercontent.com/cgriffin2415-del/abj-html-site/main/4734B225-AF48-4E68-8025-6AB0A94EE4A9.PNG" />
                     </div>
                     
-                    <!-- Text Mission Column -->
                     <div class="space-y-8">
                         <div class="space-y-4">
+                            <span class="text-brand-magenta dark:text-moss-primary font-bold text-xs tracking-wider uppercase">The heart behind the garden</span>
                             <h2 class="font-display text-3xl md:text-5xl font-bold text-about-title">
-                                Cultivating Life, <br/>
-                                <span class="italic text-brand-magenta dark:text-electric-magenta font-normal">One Seed at a Time</span>
+                                Growing food—and a life rooted in purpose.
                             </h2>
                             <p class="text-lg font-semibold text-about-title opacity-90 leading-relaxed">
-                                Rooted in faith and fueled by passion, our mission is to empower families to grow their own food, restore backyard soil, and live healthier lives.
+                                I’m Sheron, the gardener and storyteller behind A Beautiful Jungle. I share what I am learning in my own backyard: what succeeds, what fails, what volunteers, and what is worth trying again.
                             </p>
                         </div>
                         
                         <div class="space-y-6">
                             <p class="text-base leading-relaxed text-about-text opacity-90">
-                                Through organic master gardening strategies and community masterclasses, we guide growers to design high-yield layouts that work alongside nature. Our digital products are tailored to ensure you can preserve and relish what you sow.
+                                This is a place for practical education, family-centered growing, preserving the harvest, and encouragement for people who may not have acres—but are ready to begin.
                             </p>
                             
                             <ul class="space-y-4">
@@ -468,8 +552,8 @@
                                         <span class="material-symbols-outlined fill-1">local_florist</span>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-sm text-about-title">Organic Master Gardening</h4>
-                                        <p class="text-xs text-about-text opacity-85">Natural amendments and high-yield biological growing.</p>
+                                        <h4 class="font-bold text-sm text-about-title">Grow with intention</h4>
+                                        <p class="text-xs text-about-text opacity-85">Make the most of the space you have.</p>
                                     </div>
                                 </li>
                                 <li class="flex items-center gap-4">
@@ -477,8 +561,8 @@
                                         <span class="material-symbols-outlined fill-1">eco</span>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-sm text-about-title">Backyard Self-Sufficiency</h4>
-                                        <p class="text-xs text-about-text opacity-85">Practical growing guides to produce food for the family.</p>
+                                        <h4 class="font-bold text-sm text-about-title">Learn honestly</h4>
+                                        <p class="text-xs text-about-text opacity-85">Successes and setbacks both teach us.</p>
                                     </div>
                                 </li>
                                 <li class="flex items-center gap-4">
@@ -486,8 +570,8 @@
                                         <span class="material-symbols-outlined fill-1">groups</span>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-sm text-about-title">Community Masterclasses</h4>
-                                        <p class="text-xs text-about-text opacity-85">Shared wisdom, seasonal workshops, and local garden circles.</p>
+                                        <h4 class="font-bold text-sm text-about-title">Feed &amp; Build</h4>
+                                        <p class="text-xs text-about-text opacity-85">Connect the garden to the kitchen and grow together.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -498,84 +582,34 @@
             </div>
         </section>
 
-        <!-- Digital Tools & Products Section -->
-        <section id="products" class="py-24 px-6 md:px-16 bg-products-bg text-products-text border-y border-outline-variant-light/20 transition-colors duration-300">
+        <!-- Watch & Learn Video Hub (Updated Typo) -->
+        <section id="hub" class="py-24 px-6 md:px-16 bg-videos-bg text-videos-text border-y border-outline-variant-light/20 transition-colors duration-300">
             <div class="max-w-7xl mx-auto space-y-16">
                 
-                <!-- Section Header -->
-                <div class="text-center max-w-3xl mx-auto space-y-4">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold text-products-title">
-                        Tools for Your Jungle
-                    </h2>
-                    <p class="text-lg text-products-text opacity-95">
-                        Expertly crafted digital handbooks to simplify planting and preserve your abundant harvests.
-                    </p>
-                </div>
-                
-                <!-- Center aligned Single Product Card -->
-                <div class="flex justify-center w-full">
-                    
-                    <!-- Featured Product Card -->
-                    <div class="bg-product-card-bg border border-product-card-border rounded-3xl p-8 shadow-forest dark:shadow-forest-dark flex flex-col justify-between relative overflow-hidden max-w-md w-full transform hover:-translate-y-1 transition-transform duration-300 group">
-                        <div class="absolute top-0 right-0 bg-brand-magenta text-white font-bold text-[10px] tracking-wider uppercase px-4 py-1.5 rounded-bl-2xl">
-                            Coming Soon
-                        </div>
-                        <div class="space-y-6">
-                            <div class="w-14 h-14 bg-forest-primary/5 dark:bg-moss-primary/5 border border-forest-primary/10 dark:border-moss-primary/10 rounded-2xl flex items-center justify-center text-forest-primary dark:text-moss-primary">
-                                <span class="material-symbols-outlined text-3xl">map</span>
-                            </div>
-                            <h3 class="font-display text-2xl font-bold text-products-title">
-                                Hyper-Local Smart Planting Guide
-                            </h3>
-                            <p class="text-sm leading-relaxed text-products-text opacity-90">
-                                Stop guessing when to plant. Get USDA-based first/last frost dates and exact sowing timeframes tailored specifically for your ZIP code and micro-climate.
-                            </p>
-                            <div class="flex items-baseline gap-2 pt-2">
-                                <span class="font-display text-3xl font-bold text-products-title">$9.99</span>
-                                <span class="text-sm text-products-text opacity-50 line-through font-semibold">$19.99</span>
-                            </div>
-                        </div>
-                        <button disabled class="mt-8 w-full bg-soil-grey/15 dark:bg-white/10 text-soil-grey/50 dark:text-white/40 font-bold py-3.5 rounded-xl cursor-not-allowed transition-colors">
-                            Coming Soon
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Watch & Learn Video Hub -->
-        <section id="hub" class="py-24 px-6 md:px-16 bg-videos-bg text-videos-text transition-colors duration-300">
-            <div class="max-w-7xl mx-auto space-y-16">
-                
-                <!-- Section Header -->
                 <div class="flex flex-col md:flex-row justify-between items-end gap-6">
                     <div class="space-y-4 text-center md:text-left max-w-2xl">
+                        <span class="text-brand-magenta dark:text-moss-primary font-bold text-xs tracking-wider uppercase">Watch &amp; learn</span>
                         <h2 class="font-display text-3xl md:text-5xl font-bold text-videos-title">
-                            Watch &amp; Learn
+                            Real garden stories from A Beautiful Jungle.
                         </h2>
                         <p class="text-lg text-videos-text opacity-95">
-                            Practical, faith-driven horticultural techniques directly from the garden.
+                            Start with a practical tutorial, a harvest story, or a lesson learned directly from the garden.
                         </p>
                     </div>
                     <a href="https://www.youtube.com/@A_Beautiful_Jungle" target="_blank" class="flex items-center text-brand-magenta hover:text-magenta-hover dark:text-moss-primary dark:hover:text-moss-primary/80 font-bold text-sm tracking-wider uppercase group">
-                        Visit Youtube Channel
+                        See the latest videos
                         <span class="material-symbols-outlined text-base ml-1.5 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
                 </div>
                 
-                <!-- Videos Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
                     <!-- Video Card 1 -->
                     <div onclick="playVideo('PZ2ppNuNSpU')" class="group cursor-pointer space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-forest-primary/10 border border-outline-variant-light/30 dark:border-outline-variant-dark/30 shadow-md group-hover:shadow-lg transition-shadow">
-                            <!-- Static Image from YouTube CDN -->
-                            <img alt="YouTube Video: Final Potatoe Harvest for 2024 (39 lbs of potatoes)" 
+                            <img alt="YouTube Video: Final Potato Harvest for 2024 (39 lbs of potatoes)" 
                                  class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" 
                                  src="https://img.youtube.com/vi/PZ2ppNuNSpU/maxresdefault.jpg" 
                                  onerror="this.src='https://img.youtube.com/vi/PZ2ppNuNSpU/hqdefault.jpg'" />
-                            <!-- Play Overlay -->
                             <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300">
                                     <span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
@@ -583,19 +617,17 @@
                             </div>
                         </div>
                         <h4 class="font-display text-xl font-bold text-videos-title group-hover:text-brand-magenta transition-colors">
-                            Final Potatoe Harvest for 2024 (39 lbs of potatoes)
+                            Final Potato Harvest for 2024 (39 lbs of potatoes)
                         </h4>
                     </div>
 
                     <!-- Video Card 2 -->
                     <div onclick="playVideo('SIhiCn3oqUo')" class="group cursor-pointer space-y-4 md:translate-y-6">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-forest-primary/10 border border-outline-variant-light/30 dark:border-outline-variant-dark/30 shadow-md group-hover:shadow-lg transition-shadow">
-                            <!-- Static Image from YouTube CDN -->
                             <img alt="YouTube Video: Exciting First Harvest Of The Season: Crop Of Tomatoes, Beans, & Peppers" 
                                  class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" 
                                  src="https://img.youtube.com/vi/SIhiCn3oqUo/maxresdefault.jpg" 
                                  onerror="this.src='https://img.youtube.com/vi/SIhiCn3oqUo/hqdefault.jpg'" />
-                            <!-- Play Overlay -->
                             <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300">
                                     <span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
@@ -610,12 +642,10 @@
                     <!-- Video Card 3 -->
                     <div onclick="playVideo('P9jw-cjVIws')" class="group cursor-pointer space-y-4">
                         <div class="relative aspect-video rounded-2xl overflow-hidden bg-forest-primary/10 border border-outline-variant-light/30 dark:border-outline-variant-dark/30 shadow-md group-hover:shadow-lg transition-shadow">
-                            <!-- Static Image from YouTube CDN -->
                             <img alt="YouTube Video: Before your next Rainstorm, Do THIS for your garden" 
                                  class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" 
                                  src="https://img.youtube.com/vi/P9jw-cjVIws/maxresdefault.jpg" 
                                  onerror="this.src='https://img.youtube.com/vi/P9jw-cjVIws/hqdefault.jpg'" />
-                            <!-- Play Overlay -->
                             <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300">
                                     <span class="material-symbols-outlined text-white text-4xl fill-1">play_arrow</span>
@@ -626,7 +656,6 @@
                             Before your next Rainstorm, Do THIS for your garden
                         </h4>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -636,95 +665,96 @@
     <!-- Lightbox Video Modal -->
     <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
         <div class="relative w-full max-w-4xl bg-[#0c0c0c] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300">
-            <!-- Close Button -->
             <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors z-10" aria-label="Close video player">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <!-- Video Container -->
             <div class="aspect-video w-full">
                 <iframe id="modal-iframe" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Footer with Newsletter -->
-    <footer class="bg-footer-bg text-footer-text pt-24 pb-12 mt-12 border-t border-outline-variant-light/20 theme-transition">
+    <!-- Footer with Garden Ledger Coming Soon -->
+    <footer class="bg-footer-bg text-footer-text pt-24 pb-12 theme-transition">
         <div class="px-6 md:px-16 max-w-7xl mx-auto flex flex-col gap-16">
             
-            <!-- Newsletter Sign-up Section -->
+            <!-- Newsletter / Ledger Update -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-b border-outline-variant-light/20 pb-16">
                 <div class="space-y-4">
-                    <h3 class="font-display text-3xl md:text-4xl text-footer-title italic">Join the Garden Ledger</h3>
+                    <span class="text-brand-magenta dark:text-moss-primary font-bold text-xs tracking-wider uppercase">Free guide in progress</span>
+                    <h3 class="font-display text-3xl md:text-4xl text-footer-title italic">Know Your Plant Families</h3>
                     <p class="text-sm md:text-base text-footer-text opacity-90">
-                        Receive weekly companion planting recommendations, natural composting cheat-sheets, and preservation recipes directly in your inbox.
+                        A practical starter guide is being prepared for the Garden Ledger. It will help gardeners understand plant relationships and make more confident planting decisions.
                     </p>
                 </div>
                 
-                <div class="w-full">
-                    <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-4">
-                        <input id="newsletter-email" 
-                               class="flex-grow bg-footer-input border border-footer-input-border focus:border-brand-magenta focus:ring-1 focus:ring-brand-magenta text-footer-input-text px-6 py-4 rounded-xl font-medium outline-none placeholder:text-footer-input-text placeholder-opacity-50 transition-colors" 
-                               placeholder="Enter your email address" 
-                               type="email" 
-                               required />
-                        <button class="bg-brand-magenta hover:bg-magenta-hover text-white font-bold px-8 py-4 rounded-xl shadow-magenta-glow hover:shadow-lg transition-all duration-300 whitespace-nowrap" 
-                                type="submit">
-                            Subscribe
-                        </button>
-                    </form>
-                    <span id="subscribe-feedback" class="block text-xs font-semibold text-footer-title mt-2 h-4"></span>
+                <div class="w-full bg-forest-primary/5 dark:bg-white/5 border border-forest-primary/10 dark:border-white/10 rounded-2xl p-8">
+                    <strong class="block text-footer-title font-display text-xl mb-3">Garden Ledger signup coming soon</strong>
+                    <p class="text-sm text-footer-text opacity-85 leading-relaxed">
+                        Email delivery will be connected and tested before this form opens. No pretend signup—and no lost email addresses.
+                    </p>
                 </div>
             </div>
             
-            <!-- Footer Bottom Links & Social Media Glass Icons -->
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
                 <div class="space-y-2">
                     <h4 class="font-display text-2xl font-bold tracking-tight text-footer-title italic">
                         A Beautiful Jungle
                     </h4>
                     <p class="text-xs text-footer-text opacity-75">
-                        &copy; 2026 A Beautiful Jungle. Rooted in faith, growing with purpose.
+                        <a href="mailto:abeautifuljungle@gmail.com" class="hover:text-brand-magenta transition-colors">abeautifuljungle@gmail.com</a>
                     </p>
                 </div>
 
-                <!-- Glassmorphic Social Media Icons -->
                 <div class="flex flex-wrap items-center gap-4">
-                    <!-- Pinterest -->
                     <a href="https://www.pinterest.com/abeautifuljungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="Pinterest">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.4 7.63 11.16-.1-.95-.2-2.4.04-3.43.22-.93 1.4-5.93 1.4-5.93s-.36-.72-.36-1.77c0-1.66.96-2.9 2.19-2.9 1.03 0 1.53.77 1.53 1.7 0 1.04-.66 2.6-.99 4.05-.28 1.2.6 2.17 1.78 2.17 2.14 0 3.78-2.26 3.78-5.5 0-2.88-2.07-4.9-5.03-4.9-3.43 0-5.45 2.57-5.45 5.23 0 1.04.4 2.15.9 2.75.1.12.11.23.08.35-.09.38-.29 1.18-.33 1.35-.05.2-.18.24-.4.14-1.54-.72-2.5-2.97-2.5-4.78 0-3.89 2.83-7.46 8.15-7.46 4.28 0 7.6 3.05 7.6 7.12 0 4.25-2.68 7.67-6.4 7.67-1.25 0-2.43-.65-2.83-1.42 0 0-.62 2.36-.77 2.93-.28 1.07-1.04 2.4-1.55 3.23 1.13.35 2.33.54 3.57.54 6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>
                     </a>
-                    <!-- Instagram -->
                     <a href="https://www.instagram.com/abeautifuljungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="Instagram">
                         <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <!-- Facebook -->
                     <a href="https://www.facebook.com/profile.php?id=61586309692134" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="Facebook">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <!-- TikTok -->
                     <a href="https://www.tiktok.com/@abeautifuljungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="TikTok">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.99 1.25 2.37 2.11 3.91 2.47V10.6c-1.63-.03-3.23-.52-4.59-1.44-.33-.23-.65-.48-.94-.75v7.27c.07 1.83-.53 3.64-1.69 5.03-1.48 1.82-3.79 2.91-6.14 2.92-2.19.05-4.36-.78-5.97-2.27C.6 19.82-.16 17.56.02 15.28c.15-2.26 1.27-4.38 3.1-5.7 1.71-1.28 3.86-1.85 5.99-1.57v4.06c-1.12-.22-2.31-.03-3.28.58-.93.59-1.51 1.62-1.57 2.72-.08 1.13.39 2.24 1.23 2.99.96.88 2.29 1.23 3.52.92 1.34-.31 2.39-1.43 2.51-2.81V.02z"/></svg>
                     </a>
-                    <!-- YouTube -->
                     <a href="https://www.youtube.com/@A_Beautiful_Jungle" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-full bg-footer-social-bg border border-footer-social-border text-footer-social-text hover:bg-footer-social-hover-bg hover:scale-110 backdrop-blur-md transition-all duration-300" aria-label="YouTube">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.163c-.272-1.022-1.074-1.826-2.097-2.098C19.56 3.793 12 3.793 12 3.793S4.44 3.793 2.6 4.065c-1.022.272-1.825 1.076-2.097 2.098C.24 8.002.24 12 .24 12s0 3.998.263 5.837c.272 1.022 1.075 1.826 2.097 2.098 1.84.272 9.4.272 9.4.272s7.56 0 9.4-.272c1.022-.272 1.825-1.076 2.097-2.098.263-1.839.263-5.837.263-5.837s0-3.998-.263-5.837zm-14.28 9.53V8.307l6.4 3.693-6.4 3.693z"/></svg>
                     </a>
                 </div>
+            </div>
 
-                <div class="flex flex-wrap gap-x-8 gap-y-4 text-xs font-semibold text-footer-text opacity-75">
-                    <a class="hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
-                    <a class="hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
-                    <a class="hover:opacity-100 transition-opacity" href="#">Shipping &amp; Returns</a>
-                    <a class="hover:opacity-100 transition-opacity" href="#">Contact Us</a>
+            <!-- Legal Disclaimers -->
+            <div class="border-t border-outline-variant-light/20 pt-8 mt-8 space-y-6">
+                <details class="group border-b border-outline-variant-light/10 pb-4">
+                    <summary class="cursor-pointer font-bold text-sm text-footer-title flex items-center justify-between">
+                        Privacy Policy
+                        <span class="material-symbols-outlined transform group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="text-xs text-footer-text opacity-75 mt-3 max-w-4xl leading-relaxed">
+                        A Beautiful Jungle will use information you voluntarily provide only to deliver requested resources, class access, customer support, or updates you choose to receive. Payment information will be processed by the selected checkout provider and will not be stored on this website. This draft policy should be reviewed before collecting customer information.
+                    </p>
+                </details>
+                <details class="group border-b border-outline-variant-light/10 pb-4">
+                    <summary class="cursor-pointer font-bold text-sm text-footer-title flex items-center justify-between">
+                        Terms of Service
+                        <span class="material-symbols-outlined transform group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="text-xs text-footer-text opacity-75 mt-3 max-w-4xl leading-relaxed">
+                        Educational content is provided for personal use and general information. Course materials may not be copied, resold, or redistributed. Garden results vary with climate, soil, care, and other local conditions. Final purchase, access, cancellation, and refund terms will be added before enrollment opens.
+                    </p>
+                </details>
+                <div class="flex flex-wrap justify-between items-center text-xs font-semibold text-footer-text opacity-60 pt-4">
+                    <span>© 2026 A Beautiful Jungle. All rights reserved.</span>
+                    <span>Grow. Thrive. Flourish.</span>
                 </div>
             </div>
             
         </div>
     </footer>
 
-    <!-- Interactive script components -->
     <script>
-        // Toggle mobile dropdown menu visibility
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-btn-icon');
@@ -732,7 +762,6 @@
             icon.innerText = isHidden ? 'menu' : 'close';
         }
 
-        // Cycle page theme (Light -> Midday -> Dark -> Light)
         function toggleTheme() {
             const html = document.documentElement;
             let current = 'light';
@@ -763,7 +792,6 @@
             updateThemeToggleButton(next);
         }
 
-        // Update the toggle button icon depending on active theme mode
         function updateThemeToggleButton(theme) {
             const icon = document.getElementById('theme-toggle-icon');
             if (!icon) return;
@@ -781,35 +809,31 @@
             }
         }
 
-        // Swap Creator photo depending on active theme mode
         function updateThemeAssets(theme) {
             const img = document.getElementById('founder-image');
             if (img) {
                 if (theme === 'light' || theme === 'midday') {
-                    img.src = './4734B225-AF48-4E68-8025-6AB0A94EE4A9.PNG';
+                    img.src = 'https://raw.githubusercontent.com/cgriffin2415-del/abj-html-site/main/4734B225-AF48-4E68-8025-6AB0A94EE4A9.PNG';
                     img.alt = "Founder of A Beautiful Jungle in a sunny garden setting";
                 } else if (theme === 'dark') {
-                    img.src = './0DEADD4C-B7B8-41E9-846C-82C8EFF712D9.PNG';
+                    img.src = 'https://raw.githubusercontent.com/cgriffin2415-del/abj-html-site/main/0DEADD4C-B7B8-41E9-846C-82C8EFF712D9.PNG';
                     img.alt = "Founder of A Beautiful Jungle - Nocturnal greenhouse setting";
                 }
             }
         }
 
-        // Determine theme based on local system hour
         function getThemeByTimeOfDay() {
             const hour = new Date().getHours();
             if (hour >= 6 && hour < 12) {
-                return 'light';      // Morning (6am - 11:59am)
+                return 'light';
             } else if (hour >= 12 && hour < 17) {
-                return 'midday';     // Afternoon (12pm - 4:59pm)
+                return 'midday';
             } else {
-                return 'dark';       // Evening/Night (5pm - 5:59am)
+                return 'dark';
             }
         }
 
-        // Load correct theme preferences on startup
         window.addEventListener('DOMContentLoaded', () => {
-            // Default to time-based theme if user has no manually saved preference
             const savedTheme = localStorage.getItem('theme') || getThemeByTimeOfDay();
 
             document.documentElement.classList.remove('midday', 'dark');
@@ -822,12 +846,6 @@
             updateThemeToggleButton(savedTheme);
         });
 
-        // Simulate digital guide purchase action
-        function simulatePurchase(guideName) {
-            alert(`Thank you for your interest! Purchasing "${guideName}" is simulated. Under construction.`);
-        }
-
-        // YouTube video modal pop-up player lightbox
         function playVideo(videoId) {
             const modal = document.getElementById('video-modal');
             const iframe = document.getElementById('modal-iframe');
@@ -860,28 +878,12 @@
             }
         }
 
-        // Close modal when clicking outside the video player container
         window.addEventListener('click', (e) => {
             const modal = document.getElementById('video-modal');
             if (e.target === modal) {
                 closeVideoModal();
             }
         });
-
-        // Handle newsletter subscription forms
-        function handleSubscribe(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsletter-email');
-            const feedback = document.getElementById('subscribe-feedback');
-            
-            if (emailInput.value) {
-                feedback.innerText = `Success! ${emailInput.value} has been added to the Ledger.`;
-                emailInput.value = '';
-                setTimeout(() => {
-                    feedback.innerText = '';
-                }, 5000);
-            }
-        }
     </script>
 </body>
 </html>
